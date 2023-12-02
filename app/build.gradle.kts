@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.fragmentuppgiftmoa"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.fragmentuppgiftmoa"
@@ -15,6 +15,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildFeatures {
+        viewBinding = true
     }
 
     buildTypes {
@@ -37,6 +40,7 @@ android {
 
 dependencies {
 
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
