@@ -16,8 +16,16 @@ class FragmentSecond : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = SecondFragmentBinding.inflate(layoutInflater)
+
+        val editText1 = binding.valOneEdit
+        val editText2 = binding.valTwoText
+        val editText3 = binding.valThreeEdit
+
         binding.buttonMagic.setOnClickListener {
-            listener?.magicButton()
+           val xValue = editText1.text.toString().toFloatOrNull() ?: 0f
+            val yValue = editText2.text.toString().toFloatOrNull() ?: 0f
+
+            listener?.magicButton(xValue, yValue)
 
         }
         return binding.root
@@ -27,6 +35,6 @@ class FragmentSecond : Fragment() {
     }
 
     interface ButtonListener {
-        fun magicButton()
+        fun magicButton(xValue : Float, yValue: Float)
     }
 }

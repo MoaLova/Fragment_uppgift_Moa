@@ -12,9 +12,12 @@ import com.example.fragmentuppgiftmoa.databinding.FirstFragmentBinding
 class MainActivity : AppCompatActivity(), SurfaceHolder.Callback, FragmentSecond.ButtonListener {
 
     lateinit var binding: ActivityMainBinding
+    private lateinit var gameView: GameView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(GameView(this))
+
+        gameView = GameView(this)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -46,8 +49,9 @@ class MainActivity : AppCompatActivity(), SurfaceHolder.Callback, FragmentSecond
         TODO("Not yet implemented")
     }
 
-    override fun magicButton() {
+    override fun magicButton(xValue: Float, yValue: Float) {
         supportFragmentManager.commit{
+            
             replace(R.id.frameLayout, FragmentFirst())
 
         }

@@ -36,6 +36,11 @@ class GameView(context: Context) : SurfaceView(context), SurfaceHolder.Callback,
         ball2.paint.color = Color.GREEN
     }
 
+    fun setBallPosition(x: Float, y: Float){
+        ball2.posY = y
+        ball2.posX = x
+    }
+
     fun start() {
         running = true
         thread = Thread(this)
