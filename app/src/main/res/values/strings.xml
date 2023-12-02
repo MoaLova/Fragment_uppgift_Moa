@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Fragment uppgift Moa</string>
+    <string name="choce_text">Creater your own figure</string>
+    <string name="one">Val 1\n</string>
+    <string name="two">Val 2\n</string>
+    <string name="three">Val 3\n</string>
 </resources>

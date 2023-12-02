@@ -9,7 +9,7 @@ import com.example.fragmentuppgiftmoa.databinding.ActivityMainBinding
 import com.example.fragmentuppgiftmoa.databinding.FirstFragmentBinding
 
 
-class MainActivity : AppCompatActivity(), SurfaceHolder.Callback {
+class MainActivity : AppCompatActivity(), SurfaceHolder.Callback, FragmentSecond.ButtonListener {
 
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,18 +21,16 @@ class MainActivity : AppCompatActivity(), SurfaceHolder.Callback {
 
 
         supportFragmentManager.commit {
-            add(R.id.frameLayout, FragmentFirst())
+            add(R.id.frameLayout, FragmentSecond().apply {
+                listener = this@MainActivity
+            })
+
         }
-        binding.button1.setOnClickListener{
-            supportFragmentManager.commit {
-                replace(R.id.frameLayout, FragmentFirst())
-            }
-        }
-        binding.button2.setOnClickListener{
-            supportFragmentManager.commit {
-                replace(R.id.frameLayout, FragmentSecond())
-            }
-        }
+        //binding.b.setOnClickListener{
+        //            supportFragmentManager.commit {
+        //                replace(R.id.frameLayout, FragmentFirst())
+        //            }
+        //        }
 
     }
 
@@ -46,5 +44,12 @@ class MainActivity : AppCompatActivity(), SurfaceHolder.Callback {
 
     override fun surfaceDestroyed(p0: SurfaceHolder) {
         TODO("Not yet implemented")
+    }
+
+    override fun magicButton() {
+        supportFragmentManager.commit{
+            replace(R.id.frameLayout, FragmentFirst())
+
+        }
     }
 }
